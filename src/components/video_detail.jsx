@@ -5,10 +5,15 @@ export default class VideoDetail extends Component {
     super(props);
   }
   render() {
-    return (
+    console.log(this.props.video)
+    return (this.props.video) ? (
       <div className="col-md-8">
-        <h1>Hello!!</h1>
+        <a href="#" className="thumbnail">
+          <img src={this.props.video.snippet.thumbnails.high.url} alt="react-video" />
+        </a>
+        <h3>{this.props.video.snippet.title}</h3>
+        <p>{this.props.video.snippet.description}</p>
       </div>
-    )
+    ) : null;
   }
 }

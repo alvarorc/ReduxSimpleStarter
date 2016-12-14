@@ -13,10 +13,13 @@ export default class SearchBar extends Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.state.search);
+    if(this.state.search.trim() !== ''){
+      this.props.handleSearch(this.state.search);
+    }
   }
   render() {
     return (
-      <div className="col-md-6 col-md-offset-3">
+      <div className="search-bar col-md-6 col-md-offset-3">
         <form className="input-group" onSubmit={this.handleSubmit.bind(this)}>
           <input
             type="text"
